@@ -41,36 +41,16 @@ with
 ```
 ## FOR GOOGLE LOGIN
 email_ip = self.driver.find_element_by_xpath('//*[@id="identifierId"]') 
-email_ip.send_keys('vapatwa2004')
+email_ip.send_keys('email_ID')
 next_btn_1 = self.driver.find_element_by_xpath('//*[@id="identifierNext"]/span/span')
 next_btn_1.click()
 sleep(3)
 pass_ip = self.driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
-pass_ip.send_keys('ghostrider007')
+pass_ip.send_keys('password')
 next_btn_2 = self.driver.find_element_by_xpath('//*[@id="passwordNext"]/span/span')
 next_btn_2.click()
 ```       
 
-To Login using Phone number, replace FB Login code from above with
-
-```
-## FOR PHONE LOGIN
-phone_no_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[3]/button')
-phone_no_btn.click()
-sleep(1)
-phone_no_ip = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div[2]/div/input')
-phone_no_ip.send_keys('9819945941')
-continue_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/button')
-continue_btn.click()
-```
-
-and remove
-
-```
-## SWITCHING TO THE LOGIN POPUP 
-main_window = self.driver.window_handles[0]
-self.driver.switch_to.window(self.driver.window_handles[1])
-```
 **If you do not use 2FA on your account then comment the following code:**
 ```
 sleep(1.5) 
