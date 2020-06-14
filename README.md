@@ -71,7 +71,7 @@ and remove
 main_window = self.driver.window_handles[0]
 self.driver.switch_to.window(self.driver.window_handles[1])
 ```
-**If you do not use 2FA on your account then comment the following code:
+**If you do not use 2FA on your account then comment the following code:**
 ```
 sleep(1.5) 
 gauth_btn = bot.driver.find_element_by_xpath('//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/ul/li[2]/div')
@@ -85,20 +85,4 @@ auth_ip.send_keys(token)
 next_btn_3 = bot.driver.find_element_by_xpath('//*[@id="totpNext"]')
 next_btn_3.click()
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
