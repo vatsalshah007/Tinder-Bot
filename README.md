@@ -17,7 +17,15 @@ To Login using Google Account, replace:
 fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[2]/button')
 fb_btn.click()
 ```
+
+with 
+
+```
+google_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[1]/div/button')
+google_btn.click()
+```
 and 
+ 
 ```
 ## FOR FACEBOOK LOGIN
 email_ip = self.driver.find_element_by_xpath('//*[@id="email"]') 
@@ -28,13 +36,8 @@ login_btn = self.driver.find_element_by_xpath('//*[@id="loginbutton"]')
 login_btn.click()
 ```
 
-with 
+with
 
-```
-google_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[1]/div/button')
-google_btn.click()
-```
-and 
 ```
 ## FOR GOOGLE LOGIN
 email_ip = self.driver.find_element_by_xpath('//*[@id="identifierId"]') 
