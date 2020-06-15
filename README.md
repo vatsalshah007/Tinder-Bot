@@ -13,20 +13,22 @@ Then install Selenium using:
 
 Create a config file and save your username and password over there and import them in the main file
 
-# To Login using Google Account, replace:
+# To Login using Google Account:
+
+Replace
 
 ```
 fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[2]/button')
 fb_btn.click()
 ```
 
-with 
+With 
 
 ```
 google_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[1]/div/button')
 google_btn.click()
 ```
-and 
+And 
  
 ```
 ## FOR FACEBOOK LOGIN
@@ -38,7 +40,7 @@ login_btn = self.driver.find_element_by_xpath('//*[@id="loginbutton"]')
 login_btn.click()
 ```
 
-with
+With
 
 ```
 ## FOR GOOGLE LOGIN
@@ -53,7 +55,8 @@ next_btn_2 = self.driver.find_element_by_xpath('//*[@id="passwordNext"]/span/spa
 next_btn_2.click()
 ```       
 
-# **If you do not use 2FA on your account then comment the following code:**
+# If you do not use 2FA on your account then comment the following code:
+**NOTE: Below code is only for 2FA for google accounts using G Authenticator
 ```
 sleep(1.5) 
 gauth_btn = bot.driver.find_element_by_xpath('//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/ul/li[2]/div')
