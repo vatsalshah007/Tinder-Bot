@@ -11,7 +11,7 @@ First download the Chromedriver, unzip and  move to your desired location (Windo
 Then install Selenium using:
 - `pip install selenium`
 
-__Create a config file and save your username and password over there and import them in the main file__
+_Create a config file and save your username and password over there and import them in the main file_
 
 # To Login using Google Account:
 
