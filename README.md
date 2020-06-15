@@ -11,7 +11,7 @@ First download the Chromedriver, unzip and  move to your desired location (Windo
 Then install Selenium using:
 - `pip install selenium`
 
-_Create a config file and save your username and password over there and import them in the main file_
+_Replace the username, password and 2FA secret code(if you have 2FA enabled) in the config file before running the bot_
 
 # To Login using Google Account:
 
