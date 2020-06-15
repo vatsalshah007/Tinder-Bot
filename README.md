@@ -11,7 +11,9 @@ First download the Chromedriver, unzip and  move to your desired location (Windo
 Then install Selenium using:
 - `pip install selenium`
 
-To Login using Google Account, replace:
+Create a config file and save your username and password over there and import them in the main file
+
+# To Login using Google Account, replace:
 
 ```
 fb_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[2]/button')
@@ -51,7 +53,7 @@ next_btn_2 = self.driver.find_element_by_xpath('//*[@id="passwordNext"]/span/spa
 next_btn_2.click()
 ```       
 
-**If you do not use 2FA on your account then comment the following code:**
+# **If you do not use 2FA on your account then comment the following code:**
 ```
 sleep(1.5) 
 gauth_btn = bot.driver.find_element_by_xpath('//*[@id="view_container"]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div/ul/li[2]/div')
