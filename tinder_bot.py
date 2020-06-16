@@ -51,7 +51,7 @@ class TinderBot():
         # phone_no_btn.click()
         # sleep(1)
         # phone_no_ip = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/div[2]/div/input')
-        # phone_no_ip.send_keys('9819945941')
+        # phone_no_ip.send_keys('phone_number')
         # continue_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[1]/button')
         # continue_btn.click()
 
@@ -74,6 +74,13 @@ class TinderBot():
         loc_allow.click()
         notif_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]/span')
         notif_btn.click()
+        if (self.driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div/div[2]/button')):
+            privacy_btn = self.driver.find_element_by_xpath('//*[@id="content"]/div/div[2]/div/div/div[2]/button')
+            privacy_btn.click()
+            sleep(.7)
+            refuse_all_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div[3]/div[2]/button')
+            refuse_all_btn.click()
+            
         
 
     def like(self):
@@ -85,15 +92,33 @@ class TinderBot():
         dislike_btn.click()
 
     def auto_swipe(self):
+        from random import random
+        left_count, right_count = 0,0
+        # sleep(7)
         while True:
-            sleep(5)
+            sleep(1)
             try:
-                self.like()
+                rand = random()
+                if not (self.driver.find_elements_by_class_name('recsCardboard__cards') ):
+                    self.msg_new_mathces()
+                elif rand < .79:
+                    self.like()
+                    right_count += 1
+                    print('{} right swipes have been made'.format(right_count))
+                else:
+                    self.dislike()
+                    left_count += 1
+                    print('{} left swipes have been made'.format(left_count))
             except Exception:
                 try:
                     self.close_popup()
                 except Exception:
-                    self.close_match()
+                    try:
+                        self.close_match()
+                    except:
+                        self.close_out_likes()
+                        self.driver.quit()
+
 
     def close_popup(self):
         popup_3 = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[2]/button[2]')
@@ -102,9 +127,18 @@ class TinderBot():
     def close_match(self):
         match_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager-canvas"]/div/div/div[1]/div/div[3]/a')
         match_popup.click()
+    
+    def close_out_likes(self):
+        out_of_likes_popup = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div[3]/button[2]')
+        out_of_likes_popup.click()
+
+    def msg_new_mathces(self):
+        matches = self.driver.find_elements_by_class_name('matchListItem')[1:]
+        matches[0].click()
+        text_ip = bot.driver.find_element_by_xpath('//*[@id="chat-text-area"]')
+        text_ip.send_keys('Hey, 2 truths one lie?')
+        send_msg_btn = bot.driver.find_element_by_xpath('//*[@id="content"]/div/div[1]/div/main/div[1]/div/div/div/div[1]/div/div/div[3]/form/button/span')
+        send_msg_btn.click()
 
 bot = TinderBot()
 bot.login()
-bot.auto_swipe()
-
-# RveJvd snByac
