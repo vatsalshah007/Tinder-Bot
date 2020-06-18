@@ -80,6 +80,7 @@ class TinderBot():
             sleep(.7)
             refuse_all_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div[3]/div[2]/button')
             refuse_all_btn.click()
+        self.auto_swipe()
             
         
 
@@ -94,7 +95,7 @@ class TinderBot():
     def auto_swipe(self):
         from random import random
         left_count, right_count = 0,0
-        # sleep(7)
+        sleep(7)
         while True:
             sleep(1)
             try:
