@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from time import sleep
-from config import google_username, google_password, google_auth_secret_code
+from config import *
 
 class TinderBot():
     def __init__(self):
@@ -21,8 +21,9 @@ class TinderBot():
         # fb_btn.click()
                                                         
         google_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[1]/div/button')
+        sleep(3)
         google_btn.click()
-        # sleep(3)
+        sleep(3)
         ## SWITCHING TO THE LOGIN POPUP 
         main_window = self.driver.window_handles[0]
         self.driver.switch_to.window(self.driver.window_handles[1])
@@ -38,13 +39,16 @@ class TinderBot():
         ## FOR GOOGLE LOGIN
         email_ip = self.driver.find_element_by_xpath('//*[@id="identifierId"]') 
         email_ip.send_keys(google_username)
-        next_btn_1 = self.driver.find_element_by_xpath('//*[@id="identifierNext"]/span/span')
+        sleep(2)
+        next_btn_1 = self.driver.find_element_by_xpath('//*[@id="identifierNext"]/div/span/span')
         next_btn_1.click()
-        sleep(1.6)
+        sleep(2)
         pass_ip = self.driver.find_element_by_xpath('//*[@id="password"]/div[1]/div/div[1]/input')
         pass_ip.send_keys(google_password)
-        next_btn_2 = self.driver.find_element_by_xpath('//*[@id="passwordNext"]/span/span')
+        sleep(2)
+        next_btn_2 = self.driver.find_element_by_xpath('//*[@id="passwordNext"]/div/span/span')
         next_btn_2.click()
+        sleep(2)
 
         ## FOR PHONE LOGIN
         # phone_no_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/span/div[3]/button')
@@ -65,11 +69,12 @@ class TinderBot():
         auth_ip.send_keys(token)
         next_btn_3 = self.driver.find_element_by_xpath('//*[@id="totpNext"]')
         next_btn_3.click()
+        sleep(6)
 
         # Switch back to main window
         self.driver.switch_to.window(self.driver.window_handles[0])
 
-        sleep(8)
+        sleep(6)
         loc_allow = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[1]/span')
         loc_allow.click()
         notif_btn = self.driver.find_element_by_xpath('//*[@id="modal-manager"]/div/div/div/div/div[3]/button[2]/span')
@@ -116,9 +121,12 @@ class TinderBot():
                 except Exception:
                     try:
                         self.close_match()
-                    except:
-                        self.close_out_likes()
-                        self.driver.quit()
+                    except Exception:
+                        try:
+                            sleep(120)
+                        except:
+                            self.close_out_likes()
+                            self.driver.quit()
 
 
     def close_popup(self):
